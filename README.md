@@ -1,24 +1,25 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Environment:
 
-Things you may want to cover:
+* `Ruby 2.6.3`
+* `Rails 6.0.2.1`
+* `Node JS 13.9.0`
+* `Yarn 1.21.1`
+* `PostgreSQL 11`
 
-* Ruby version
+Setup project
 
-* System dependencies
+* `git clone https://github.com/sashsan/webcam-rails.git`
+* `cd webcam-rails`
+* `bundle exec rake db:create`
+* `bundle exec rake db:migrate`
+* `bundle exec rake db:seed`
+* `http://localhost:3000/`
 
-* Configuration
+Tests Rspec
 
-* Database creation
+* `bundle exec rspec spec`
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
 
 * ...
