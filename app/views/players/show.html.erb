@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<div class="d-flex justify-content-center">
+  <div class="card" style="width: 18rem;">
+    <% if @player.picture.attached? && @player.has_picture? %>
+      <%= image_tag(@player.picture, class: "card-img-top") %>
+    <% else %>
+      <img class="card-img-top" src="/cat.jpg" alt="">
+    <% end %>
+
+    <div class="card-body">
+      <h5 class="card-title"><%= @player.name %></h5>
+    </div>
+
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">DOB: <%= @player.dob %></li>
+      <li class="list-group-item">Age: <%= @player.age %></li>
+      <li class="list-group-item">Height: <%= heightilize(@player.height) %></li>
+      <li class="list-group-item">Position: <%= @player.position %></li>
+      <li class="list-group-item">Foot: <%= @player.foot %></li>
+      <li class="list-group-item">Club: <%= @player.current_club %></li>
+    </ul>
+
+    <div class="card-body">
+      <%= link_to 'Edit', edit_player_path(@player), class: "card-link btn btn-dark" %>
+      <%= link_to 'Back', players_path, class: "card-link btn btn-dark" %>
+    </div>
+  </div>
+</div>

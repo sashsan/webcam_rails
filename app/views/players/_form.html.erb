@@ -1,0 +1,70 @@
+<%= form_with(model: player, local: true) do |form| %>
+  <% if player.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(player.errors.count, "error") %> prohibited this player from being saved:</h2>
+
+      <ul>
+        <% player.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="ml-4 mb-4">
+    <div class="row">
+      <div class="card" style="width: 18rem;">
+        <% if @player.picture.attached? && @player.has_picture? %>
+          <%= image_tag(@player.picture, class: "card-img-top", id: "shot") %>
+        <% else %>
+          <img class="card-img-top" src="/cat.jpg" id="shot">
+        <% end %>
+      </div>
+
+      <div class="card ml-2" style="width: 18rem;" id="viewfinder">
+        <video width="288" height="301" autoplay class=""></video>
+      </div>
+    </div>
+
+    <div class="mt-2">
+      <button type="button" class="btn btn-dark btn-sm" id="change_picture">Change Picture</button>
+      <button type="button" class="btn btn-dark btn-sm" id="snap">Snap</button>
+    </div>
+  </div>
+
+  <div class="form-group col-6">
+    <%= form.label :pob, "Place of Birth" %>
+    <%= form.text_field :pob, class: "form-control" %>
+  </div>
+
+  <div class="form-group col-6">
+    <%= form.label :height %>
+    <%= form.text_field :height, class: "form-control" %>
+  </div>
+
+  <div class="form-group col-6">
+    <%= form.label :position %>
+    <%= form.text_field :position, class: "form-control" %>
+  </div>
+
+  <div class="form-group col-6">
+    <%= form.label :foot %>
+    <%= form.text_field :foot, class: "form-control" %>
+  </div>
+
+  <div class="form-group col-6">
+    <%= form.label :current_club %>
+    <%= form.text_field :current_club, class: "form-control" %>
+  </div>
+
+  <div class=" form-group col-6 row ml-2">
+    <div class="">
+      <%= form.submit class: "btn btn-dark" %>
+    </div>
+
+    <%= link_to "Back", root_path, class: 'btn btn-dark ml-4' %>
+  </div>
+
+
+  <%= form.hidden_field :player_picture, value: @player.player_picture %>
+<% end %>
